@@ -1,5 +1,4 @@
 import express from "express"
-import { json } from "stream/consumers"
 import Trainhandler from "./view/getAllTrains"
 import Classhandler from "./view/getClassDetails"
 import { handleRegister } from "./controllers/handleRegister"

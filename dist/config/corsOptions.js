@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.corsOptions = void 0;
 const allowedOrigins = [
-    'http://localhost:3000',
+    'https://airsetc.vercel.app',
 ];
 exports.corsOptions = {
     // removing || !origin for other paltfrom like postman
