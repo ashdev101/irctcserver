@@ -42,8 +42,8 @@ export const CreateSession = async (req: Request, res: Response) => {
             },
         ],
         mode: 'payment',
-        success_url: `http://localhost:3000/bookinginfo?maxlinearquantam=${token}`,
-        cancel_url: `http://localhost:3000/paymentCancell`,
+        success_url: `https://airsetc.vercel.app/bookinginfo?maxlinearquantam=${token}`,
+        cancel_url: `https://airsetc.vercel.app/paymentCancell`,
     })
 
     //store the request in the database 
