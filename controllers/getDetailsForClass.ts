@@ -13,18 +13,18 @@ import getTime from 'date-fns/getTime'
 import areIntervalsOverlapping from 'date-fns/areIntervalsOverlapping'
 
 export const clickAndGet = async (req: Request, res: Response) => {
-    const currentTime = new Date()
-    const Range1 = new Date(`${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}T23:00:00`)
-    const Range2 = new Date(`${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}T10:00:00`)
+    const currentTime = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }))
+    const Range1 = new Date(`${currentTime.getFullYear()}-${currentTime.getMonth() + 1}-${currentTime.getDate()}T23:00:00`)
+    const Range2 = new Date(`${currentTime.getFullYear()}-${currentTime.getMonth() + 1}-${currentTime.getDate()}T10:00:00`)
     if (currentTime > Range1 && currentTime < Range2) return res.status(503).json({ message: "service unavailable between 23:00 and 01:00 try after sometime" })
-    const Range3 = new Date(`${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}T08:00:00`)
-    const Range4 = new Date(`${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}T09:00:00`)
+    const Range3 = new Date(`${currentTime.getFullYear()}-${currentTime.getMonth() + 1}-${currentTime.getDate()}T08:00:00`)
+    const Range4 = new Date(`${currentTime.getFullYear()}-${currentTime.getMonth() + 1}-${currentTime.getDate()}T09:00:00`)
     if (currentTime > Range3 && currentTime < Range4) return res.status(503).json({ message: "service unavailable between 08:00 and 09:00 try after sometime" })
-    const Range5 = new Date(`${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}T01:00:00`)
-    const Range6 = new Date(`${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}T02:00:00`)
+    const Range5 = new Date(`${currentTime.getFullYear()}-${currentTime.getMonth() + 1}-${currentTime.getDate()}T01:00:00`)
+    const Range6 = new Date(`${currentTime.getFullYear()}-${currentTime.getMonth() + 1}-${currentTime.getDate()}T02:00:00`)
     if (currentTime > Range5 && currentTime < Range6) return res.status(503).json({ message: "service unavailable between 01:00 and 02:00 try after sometime" })
     const body = req.body
-    console.log(body)
+    // console.log(body)
     if (!body.SourceStationCode || !body.DestinationStationCode || !body.date || !body.trainNumber || !body.Trainclass) return res.status(400).send("incomplete data pls send all the feilds ")
     // try {
     //     const browser = await puppeteer.launch({ headless: false })
