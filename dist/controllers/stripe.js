@@ -47,8 +47,8 @@ const CreateSession = (req, res) => __awaiter(void 0, void 0, void 0, function* 
             },
         ],
         mode: 'payment',
-        success_url: `http://localhost:3000/bookinginfo?maxlinearquantam=${token}`,
-        cancel_url: `http://localhost:3000/paymentCancell`,
+        success_url: `https://airsetc.vercel.app/bookinginfo?maxlinearquantam=${token}`,
+        cancel_url: `https://airsetc.vercel.app/paymentCancell`,
     });
     //store the request in the database 
     const createdReservationPendingPayment = yield prismaClient_1.prisma.reservations.create({
